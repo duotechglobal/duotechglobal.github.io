@@ -1,0 +1,97 @@
+<?php
+/*
+ * Vanilla Form v. 2.0.0
+ * Author: Michal Szepielak
+ *
+ * Product info and license terms:
+ * http://codecanyon.net/item/vanilla-form-modern-responsive-contact-form/10447733
+ */
+
+/*
+ * Vanilla Form v. 2.0.0
+ * Author: Michal Szepielak
+ *
+ * Product info and license terms:
+ * http://codecanyon.net/item/vanilla-form-modern-responsive-contact-form/10447733
+ */
+
+use VanillaForm\MailSender;
+use VanillaForm\Utils;
+
+require_once('inc/Utils.php');
+require_once('inc/MailSender.php');
+
+header('Access-Control-Allow-Origin: *');
+
+/*
+ * Check if call is a POST request (data was sent by form).
+ * While it's not a POST request it returns OK, which can be handy with checking that the script is alive.
+ */
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    if (function_exists('mail')) {
+        die('OK');
+    } else {
+        die('PHP parser works, but <b>mail()</b> function seems to doesn\'t exist');
+    }
+}
+
+/*
+ *
+ * Vanilla Configuration starts HERE
+ *
+ */
+$vf_config = array(
+    /*** Code Snippet - quick-start ***/
+      'emailRecipients' => 'ravikbhat@gmail.com',
+  /**
+     * If is not empty it sets a header From in e-mail message (sets sender e-mail).
+     * Note: some hosting servers can block sending e-mails with custom From field in header.
+     * If so, leave this field as empty.
+     * E.g. Single recipient
+     * 'emailSender' => 'john@domain.com',
+     */
+    'emailSender' => 'ravikbhat@gmail.com'
+    /*** /Code Snippet - quick-start ***/
+);
+$vfSender = new MailSender($vf_config);
+
+/*
+ * Some variable may need translation for better readability.
+ * You can access and modify variables by:
+ * $vfSender->data['variable-name']
+ */
+switch ($vfSender->data['gender']) {
+    case "F":
+        $vfSender->data['gender'] = "Female";
+        break;
+    case "M":
+        $vfSender->data['gender'] = "Male";
+        break;
+    default:
+        $vfSender->data['gender'] = "Not selected";
+        break;
+}
+
+// Define here subject of the e-mail message
+$subject = 'Contact Form - New Message From '.$vfSender->data['name'];
+
+// Define here content of the e-mail message
+$content = "Hey,
+You've Received New Message From Your Website. Check The Details Below:
+
+Sender's IP address: ".Utils::getIp()."
+Name: {NAME}
+E-mail: {EMAIL}
+Phone number: {TEL}
+Message:
+{MESSAGE}
+";
+
+// Set subject and message content
+$vfSender->setMessage($subject, $content);
+
+/*
+ * Vanilla Configuration ends HERE
+ */
+
+die($vfSender->sendMessage());
