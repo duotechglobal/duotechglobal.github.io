@@ -75,6 +75,10 @@ figure img {
 iframe {
     border: none
 }
+footer.inverse-wrapper a2, footer.inverse-wrapper, footer.inverse-wrapper .lead {
+    color: #ff0000 !important;
+}
+
 ::selection {
     background: #d4eaf5; /* Safari */
     color: #2f2f2f;
@@ -538,6 +542,7 @@ footer.inverse-wrapper a:hover,
 .inverse-wrapper .meta a {
     color: #a1a1a1 !important
 }
+
 footer.footer-bg1 {
     background-image: url(style/images/art/footer1.jpg) !important;
     background-repeat: no-repeat !important;
@@ -3945,4 +3950,8 @@ video::-webkit-media-controls {
 	.section-title h2:after {
 	    display: none
 	}
+}
+.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
 }
