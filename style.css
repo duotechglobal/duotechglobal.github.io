@@ -261,6 +261,10 @@ a:focus {
     color: #7bc4e6;
     text-decoration: none;
 }
+.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 .nocolor,
 .email-link {
     color: #595959 !important
@@ -683,6 +687,10 @@ blockquote .small {
 	    float: none !important;
 	    vertical-align: middle;
 	}
+	.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 }
 @media (min-width: 992px) { 
 	.col-md-height {
@@ -690,6 +698,10 @@ blockquote .small {
 	    float: none !important;
 	    vertical-align: middle;
 	}
+	.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 }
 @media (min-width: 768px) { 
 	.col-sm-height {
@@ -3596,6 +3608,10 @@ video::-webkit-media-controls {
 	.portfolio-grid.col4 .item {
 	    width: 33.33339%
 	}
+	.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 }
 @media (min-width: 992px) { 
 	.navbar .navbar-collapse {
@@ -3643,6 +3659,10 @@ video::-webkit-media-controls {
 	.navbar .dropdown-menu li a {
 	    padding: 11px 22px
 	}
+	.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 	.navbar .dropdown-menu li a:hover,
 	.navbar .dropdown-menu li a.active {
 	    padding: 11px 22px;
@@ -3864,6 +3884,10 @@ video::-webkit-media-controls {
 	    padding-right: 20px;
 	    padding-left: 20px;
 	}
+	.col-sm-3 b{
+    color: red !important;
+    font-size: medium;
+}
 	.navbar .navbar-header {
 	    padding-left: 20px;
 	    padding-right: 20px;
